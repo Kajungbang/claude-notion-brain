@@ -1,0 +1,15 @@
+# API keys and credentials
+.notion_env
+*.env
+config.json
+
+# Synced data (local only, not for sharing)
+notion_kb/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc

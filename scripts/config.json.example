@@ -1,0 +1,43 @@
+{
+  "env_file": "~/.notion_env",
+  "output_dir": "~/notion_kb",
+  "databases": [
+    {
+      "id": "YOUR_RAW_DATABASE_ID",
+      "name": "Raw Sources DB",
+      "subdir": "info",
+      "group_by": "関連プロジェクト",
+      "display_fn": "{有益性スコア} {title} [{タグ}]",
+      "fields": [
+        {"field": "タイトル",        "type": "title",        "label": "Title"},
+        {"field": "ソース種別",      "type": "select",       "label": "Source Type"},
+        {"field": "元URL",           "type": "url",          "label": "URL",              "optional": true},
+        {"field": "関連プロジェクト", "type": "multi_select", "label": "Projects",         "optional": true},
+        {"field": "有益性スコア",    "type": "select",       "label": "Usefulness"},
+        {"field": "タグ",            "type": "multi_select", "label": "Tags",             "optional": true},
+        {"field": "収集日",          "type": "date",         "label": "Collected"},
+        {"field": "ステータス",      "type": "select",       "label": "Status"},
+        {"field": "要約",            "type": "text",         "label": "Summary",          "section": true}
+      ]
+    },
+    {
+      "id": "YOUR_WIKI_DATABASE_ID",
+      "name": "Wiki DB (Knowledge Layer)",
+      "subdir": "wiki",
+      "group_by": "タイプ",
+      "display_fn": "{title} ({信頼度}) [{タグ}]",
+      "fields": [
+        {"field": "タイトル",        "type": "title",        "label": "Title"},
+        {"field": "タイプ",          "type": "select",       "label": "Type"},
+        {"field": "信頼度",          "type": "select",       "label": "Confidence"},
+        {"field": "元ソース",        "type": "url",          "label": "Source",           "optional": true},
+        {"field": "関連プロジェクト", "type": "multi_select", "label": "Projects",         "optional": true},
+        {"field": "タグ",            "type": "multi_select", "label": "Tags",             "optional": true},
+        {"field": "作成日",          "type": "date",         "label": "Created"},
+        {"field": "最終更新日",      "type": "date",         "label": "Last Updated"},
+        {"field": "ステータス",      "type": "select",       "label": "Status"},
+        {"field": "要約（1-2文）",   "type": "text",         "label": "Summary",          "section": true}
+      ]
+    }
+  ]
+}
