@@ -76,7 +76,7 @@ Claude Code（CLT） が横断検索・回答合成（QUERY）
 ## 必要なもの
 
 - [Claude Pro/Max サブスクリプション](https://claude.ai)（Claude Code + Claude アプリ用）
-- [Notion](https://notion.so) アカウント（無料プランでOK）
+- [Notion](https://notion.so) アカウント（まずは無料プランでOK）
 - Python 3.8以上（macOS/Linuxにはプリインストール済み）
 - ターミナルの基本操作（コマンドのコピペができればOK）
 
