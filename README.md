@@ -228,6 +228,19 @@ This project was born from a social science researcher's desire to build an "ext
 
 The key insight: **separate "writing" from "reading."** Claude App excels at understanding content and writing structured notes to Notion. Claude Code excels at reading files and synthesizing knowledge across many documents. A simple Python script bridges the gap.
 
+## Acknowledgements
+
+This project was built in collaboration with, and inspired by:
+
+- [Anthropic Claude](https://anthropic.com) — AI partner and co-creator
+- [Notion](https://www.notion.com) — knowledge base layer that makes it all possible
+- [Andrej Karpathy](https://x.com/karpathy/status/2039805659525644595) — 
+  whose X post on "LLM Knowledge Bases" sparked the initial idea
+- [hooeem](https://x.com/hooeem/status/2041196025906418094) — 
+  whose X article "How to create your own LLM knowledge bases today (full course)" also sparked the initial idea
+- [Claude Code Studio](https://x.com/ClaudeCode_love/status/2042886840177557533) — 
+  whose X article "Building an AI External Brain from Scratch with Claude Code × Obsidian: A Complete Guide by a Former OpenAI Employee" also sparked
+
 ## License
 
 MIT License. See [LICENSE](LICENSE).
