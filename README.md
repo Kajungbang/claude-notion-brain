@@ -3,6 +3,7 @@
 **Build your external brain with Claude × Notion — no coding experience required.**
 
 A step-by-step guide for researchers and knowledge workers to build a personal knowledge base that AI can actually use. Claude AI writes to Notion, Claude Code reads from it, and a simple Python script keeps them in sync.
+> 🆕 **v2.0** — Session Log (dynamic memory) added. See [The "External Brain" That Fixed Its Own Weakness](https://zenn.dev/kajungbang/articles/fb31e447bcf14d) 
 
 > 📖 **[日本語版はこちら / Japanese version](README_ja.md)**
 
