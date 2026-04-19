@@ -276,7 +276,7 @@ The key insight: **separate "writing" from "reading."** Claude App excels at und
 ### Related Articles (Zenn)
 
 - [Building an "External Brain" with Claude × Notion (non-engineer edition)](https://zenn.dev/kajungbang/articles/5c00f3bf7d7416) — v1.0: Building the system
-- The "External Brain" That Fixed Its Own Weakness — v2.0: Session Log (coming soon)
+- [The "External Brain" That Fixed Its Own Weakness](https://zenn.dev/kajungbang/articles/fb31e447bcf14d) — v2.0: Session Log
 
 ## Acknowledgements
 
