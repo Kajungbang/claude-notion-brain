@@ -4,7 +4,8 @@
 
 研究者やナレッジワーカーが、AIに自分の蓄積した知識を横断的に活用してもらうための仕組みを、ゼロから構築するガイドです。
 Claude AI（アプリ）がNotionに情報をINPUTし、Claude Code（CLI)がそれを読みときます。シンプルなPythonスクリプトが両者を同期する仕組みです。
-
+> 🆕 **v2.0** — セッションログ (動的記憶) 追加 [AIの「外部脳」が「自分自身の弱点」を治した話](https://zenn.dev/kajungbang/articles/fb31e447bcf14d) 
+>
 > 📖 **[English version](README.md)**
 
 ---
