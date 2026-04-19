@@ -202,7 +202,14 @@ python3 ~/scripts/sync_notion_kb.py
 
 ## What's New in v2.0: Session Log
 
-The original 3-layer architecture stored **static** knowledge beautifully — but Claude App forgot what happened between sessions. "What did we do last time?" had no answer.
+The v1.0 3-layer architecture organized **static** knowledge beautifully, solving the problem of Claude Code (CLI) "forgetting everything by morning" with an external brain.
+But then we discovered that **Claude App — the one writing to Notion — also had imperfect memory.**
+
+Claude App does have a cross-session memory feature, but it's **not complete**:
+
+- It skews toward recent conversations — older memories fade
+- KB work logs (what was INGESTed, what's still pending) are too much to remember
+- Every new session starts with "Where did we leave off last time?"
 
 **Session Log** solves this by adding a **dynamic memory** layer:
 
