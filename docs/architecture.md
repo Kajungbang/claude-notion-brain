@@ -40,6 +40,15 @@
 │  │ Schema Definition (schema layer)                    │  │
 │  │ Rules for AI operations                             │  │
 │  └─────────────────────────────────────────────────────┘  │
+│                                                           │
+│  ┌─────────────────────────────────────────────────────┐  │
+│  │ Session Log (dynamic memory) ← NEW in v2.0         │  │
+│  │ • What was done (INGEST/COMPILE history)            │  │
+│  │ • What's pending                                    │  │
+│  │ • Wiki DB statistics                                │  │
+│  │ → Updated by Claude App at end of each session      │  │
+│  │ → Read by Claude App at start of next session       │  │
+│  └─────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────┘
             │
             │  python3 sync_notion_kb.py
@@ -67,7 +76,21 @@
 | **COMPILE** | Claude App + Notion MCP | Update existing articles, add cross-links |
 | **QUERY** | Claude Code + local files | Cross-reference knowledge, answer questions |
 | **LINT** | Claude App + Notion MCP | Check consistency, flag contradictions |
+| **SESSION** | Claude App + Notion | Update session log (dynamic memory) at session end |
 | **SYNC** | Python script (cron/manual) | Pull Notion → local Markdown for Claude Code |
+
+## v2.0: 3+1 Layer Architecture / 3層+1アーキテクチャ
+
+The original 3-layer architecture (Raw, Wiki, Schema) stores **static** knowledge. But session-to-session context — what was done, what's pending — was lost between conversations.
+
+**Session Log** adds a **dynamic memory** layer: Claude App updates it at the end of each session, and reads it at the start of the next. This means "pick up where we left off" just works.
+
+| Layer | Type | Purpose |
+|---|---|---|
+| Raw Sources DB | Static | Original materials |
+| Wiki DB | AI-maintained | Integrated knowledge |
+| Schema | Static | Operation rules |
+| **Session Log** | **Dynamic** | **Work-in-progress state** |
 
 ## Why This Architecture? / なぜこの構成か
 

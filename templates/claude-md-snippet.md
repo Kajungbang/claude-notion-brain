@@ -14,6 +14,18 @@ Add the following section to your `CLAUDE.md` (or `~/.claude/CLAUDE.md` for glob
 - **Schema Definition**: `~/notion_kb/SCHEMA.md`
 ```
 
+### v2.0: Session Log (Dynamic Memory)
+
+If you use Claude App for INGEST/COMPILE work, add this rule to Claude App's Project Instructions:
+
+```markdown
+## Session Log (Dynamic Memory)
+- At the end of each session, update the Session Log page in Notion with:
+  completed items, new pending items, and Wiki DB statistics.
+- At the start of each session, read the Session Log to restore context.
+- The Session Log page must be a Wiki page (not a regular page) for Integration access.
+```
+
 ---
 
 ## How It Works

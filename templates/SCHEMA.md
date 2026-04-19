@@ -9,11 +9,12 @@
 
 **Purpose**: Build and maintain a personal knowledge base centered on your research domain.
 
-**3-Layer Architecture**:
+**3+1 Layer Architecture**:
 
 - `Raw Sources DB` (raw layer): Original sources and materials. AI reads but never modifies.
 - `Wiki DB (Knowledge Layer)` (wiki layer): Integrated knowledge generated and maintained by AI.
 - This page (schema layer): Rules and structural definitions for AI operations.
+- `Session Log` (dynamic layer): Work-in-progress state updated each session. ← v2.0
 
 ---
 
@@ -45,6 +46,25 @@
 2. Identify orphan pages (no incoming links)
 3. Check for pages not updated in 6+ months
 4. Save report to Wiki DB (Type: Q&A Output)
+
+### SESSION (Dynamic memory — v2.0)
+
+At the **end** of each Claude App session:
+
+1. Update the Session Log page in Notion with:
+   - Completed INGEST/COMPILE items
+   - New pending items
+   - Current Wiki DB statistics (source summaries, concept articles, total pages)
+2. Mark session status (completed / interrupted)
+
+At the **start** of the next session:
+
+1. Read Session Log to restore context
+2. Present pending items to user
+3. Resume work from where it was left off
+
+> The Session Log page must be a **Wiki page** in Notion (not a regular page)
+> so that the Integration can access it. See `templates/session-log-template.md`.
 
 ---
 

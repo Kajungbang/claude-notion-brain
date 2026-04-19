@@ -51,13 +51,16 @@ Claude Code reads & cross-references (QUERY)
 Answers informed by YOUR knowledge base
 ```
 
-### The 3-Layer Architecture
+### The 3+1 Layer Architecture
 
-| Layer | Where | What |
-|---|---|---|
-| **Raw** | Notion: Raw Sources DB | Original articles, papers, URLs — never modified by AI |
-| **Wiki** | Notion: Wiki DB | AI-generated summaries, concept articles, synthesis |
-| **Schema** | SCHEMA.md | Rules governing how AI reads and writes |
+| Layer | Where | What | Type |
+|---|---|---|---|
+| **Raw** | Notion: Raw Sources DB | Original articles, papers, URLs — never modified by AI | Static |
+| **Wiki** | Notion: Wiki DB | AI-generated summaries, concept articles, synthesis | AI-maintained |
+| **Schema** | SCHEMA.md | Rules governing how AI reads and writes | Static |
+| **Session Log** | Notion (Wiki page) | Work-in-progress state — what's done, what's pending | **Dynamic** |
+
+> The Session Log layer was added in v2.0. See [What's New in v2.0](#whats-new-in-v20-session-log) below.
 
 ### Role Division
 
@@ -197,6 +200,43 @@ python3 ~/scripts/sync_notion_kb.py
 # Claude Code will cross-reference your wiki articles and synthesize an answer.
 ```
 
+## What's New in v2.0: Session Log
+
+The original 3-layer architecture stored **static** knowledge beautifully — but Claude App forgot what happened between sessions. "What did we do last time?" had no answer.
+
+**Session Log** solves this by adding a **dynamic memory** layer:
+
+```
+Session ends → Claude updates the Session Log in Notion
+                (completed items, pending tasks, statistics)
+                        ↓
+Next session starts → "Pick up where we left off"
+                        ↓
+Claude reads Session Log → context fully restored
+```
+
+### How to set it up
+
+1. Create a new Notion page for session logging
+2. **Convert it to a Wiki** (required — regular pages can't connect to integrations)
+3. Add your Integration via "Connections"
+4. Copy the template from [`templates/session-log-template.md`](templates/session-log-template.md)
+5. Tell Claude App: "Use this page as our session log"
+
+### How it works in practice
+
+**Starting a session:**
+> _"Pick up where we left off."_
+>
+> Claude: "I've checked the session log. Last time we INGESTed 2 articles and have 2 pending items..."
+
+**Ending a session:**
+> _"That's all for today."_
+>
+> Claude automatically updates the session log with completed work and new pending items.
+
+> 💡 **Why Wiki?** Regular Notion pages don't show the "Connections" menu. Converting to Wiki enables integration access. This was a non-obvious discovery during development.
+
 ## Architecture
 
 See [docs/architecture.md](docs/architecture.md) for the full system diagram.
@@ -227,6 +267,11 @@ The CLAUDE.md rule suggests auto-syncing if >24 hours old. For most researchers,
 This project was born from a social science researcher's desire to build an "external brain" — a system where accumulated knowledge from papers, articles, and research notes could be cross-referenced by AI during daily work.
 
 The key insight: **separate "writing" from "reading."** Claude App excels at understanding content and writing structured notes to Notion. Claude Code excels at reading files and synthesizing knowledge across many documents. A simple Python script bridges the gap.
+
+### Related Articles (Zenn)
+
+- [Building an "External Brain" with Claude × Notion (non-engineer edition)](https://zenn.dev/kajungbang/articles/5c00f3bf7d7416) — v1.0: Building the system
+- The "External Brain" That Fixed Its Own Weakness — v2.0: Session Log (coming soon)
 
 ## Acknowledgements
 
