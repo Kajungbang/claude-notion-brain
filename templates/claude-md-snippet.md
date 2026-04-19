@@ -23,7 +23,7 @@ If you use Claude App for INGEST/COMPILE work, add this rule to Claude App's Pro
 - At the end of each session, update the Session Log page in Notion with:
   completed items, new pending items, and Wiki DB statistics.
 - At the start of each session, read the Session Log to restore context.
-- The Session Log page must be a Wiki page (not a regular page) for Integration access.
+- The Session Log must be a regular page (not a Wiki page) — Wiki pages cannot be written via MCP.
 ```
 
 ---

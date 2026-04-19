@@ -58,7 +58,7 @@ Answers informed by YOUR knowledge base
 | **Raw** | Notion: Raw Sources DB | Original articles, papers, URLs — never modified by AI | Static |
 | **Wiki** | Notion: Wiki DB | AI-generated summaries, concept articles, synthesis | AI-maintained |
 | **Schema** | SCHEMA.md | Rules governing how AI reads and writes | Static |
-| **Session Log** | Notion (Wiki page) | Work-in-progress state — what's done, what's pending | **Dynamic** |
+| **Session Log** | Notion (regular page) | Work-in-progress state — what's done, what's pending | **Dynamic** |
 
 > The Session Log layer was added in v2.0. See [What's New in v2.0](#whats-new-in-v20-session-log) below.
 
@@ -218,10 +218,10 @@ Claude reads Session Log → context fully restored
 ### How to set it up
 
 1. Create a new Notion page for session logging
-2. **Convert it to a Wiki** (required — regular pages can't connect to integrations)
-3. Add your Integration via "Connections"
-4. Copy the template from [`templates/session-log-template.md`](templates/session-log-template.md)
-5. Tell Claude App: "Use this page as our session log"
+2. Copy the template from [`templates/session-log-template.md`](templates/session-log-template.md)
+3. Tell Claude App: "Use this page as our session log"
+
+> ⚠️ **Do not convert to Wiki.** Notion Wiki pages are not fully supported by the public API (including OAuth/MCP). Claude App cannot write to Wiki pages. Keep the session log as a regular document page.
 
 ### How it works in practice
 
@@ -234,8 +234,6 @@ Claude reads Session Log → context fully restored
 > _"That's all for today."_
 >
 > Claude automatically updates the session log with completed work and new pending items.
-
-> 💡 **Why Wiki?** Regular Notion pages don't show the "Connections" menu. Converting to Wiki enables integration access. This was a non-obvious discovery during development.
 
 ## Architecture
 

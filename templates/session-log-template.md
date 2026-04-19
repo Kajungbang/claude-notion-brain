@@ -8,15 +8,12 @@
 ## How to Set Up / セットアップ方法
 
 1. Create a new page in your Notion workspace (e.g., "KB Session Log")
-2. **Convert to Wiki** (required for Claude App to access via Notion MCP)
-   - Click "..." menu → "Turn into wiki"
-   - Then add your Integration: "..." → "Connections" → select your integration
-3. Copy the template below into the page
-4. Tell Claude App: "Use this page as our session log"
+2. Copy the template below into the page
+3. Tell Claude App: "Use this page as our session log"
 
-> 💡 **Why "Turn into wiki"?**
-> Regular Notion pages don't show the "Connections" menu for integrations.
-> Converting to Wiki enables integration access. ([Details](https://developers.notion.com/docs/working-with-page-content))
+> ⚠️ **Use a regular page, not a Wiki page.**
+> Wiki pages in Notion are not fully supported by the public API (including OAuth/MCP).
+> Claude App cannot write to Wiki pages. Keep the session log as a regular document page.
 
 ---
 

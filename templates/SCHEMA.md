@@ -63,8 +63,9 @@ At the **start** of the next session:
 2. Present pending items to user
 3. Resume work from where it was left off
 
-> The Session Log page must be a **Wiki page** in Notion (not a regular page)
-> so that the Integration can access it. See `templates/session-log-template.md`.
+> The Session Log must be a **regular page** in Notion (not a Wiki page).
+> Wiki pages are not fully supported by the Notion public API — Claude App
+> cannot write to them via MCP. See `templates/session-log-template.md`.
 
 ---
 
